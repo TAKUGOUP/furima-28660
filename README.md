@@ -1,24 +1,60 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column    | Type    | Options     |
+| --------- | ------- | ----------- |
+| nickname  | string  | null: false |
+| email     | string  | null: false |
+| user_name | string  | null: false |
+| password  | string  | null: false |
+| birthday  | string  | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :items
+- has_many :purchase_data
 
-* Configuration
+## items テーブル
 
-* Database creation
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| image        | string     | null: false                    |
+| item_name    | string     | null: false                    |
+| price        | string     | null: false                    |
+| user_id      | references | null: false, foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+has_one :purchase_data
+belongs_to :users
 
-* Services (job queues, cache servers, search engines, etc.)
+## purchase_data テーブル
 
-* Deployment instructions
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| purchase_data | string     | null: false                    |
+| user_id       | references | null: false, foreign_key: true |
+| item_id       | references | null: false, foreign_key: true |
 
-* ...
+### Association
+
+belongs_to :users
+belongs_to :items
+has_one :shipping_address
+
+## shipping_address テーブル
+
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| postal_code      | string     | null: false                    |
+| prefecture       | string     | null: false                    |
+| city             | string     | null: false                    |
+| number           | string     | null: false                    |
+| building_name    | string     | null: false                    |
+| telephone_number | integer    | null: false                    |
+| purchase_data_id | references | null: false, foreign_key: true |
+
+### Association
+
+belongs_to :purchase_data
