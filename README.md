@@ -6,10 +6,10 @@
 | ------------------------ | ------- | ----------- |
 | nickname                 | string  | null: false |
 | email                    | string  | null: false |
-| user_name_last_kanji     | string  | null: false |
-| user_name_first_kanji    | string  | null: false |
-| user_name_last_katakana  | string  | null: false |
-| user_name_first_katakana | string  | null: false |
+| name_last_kanji     | string  | null: false |
+| name_first_kanji    | string  | null: false |
+| name_last_katakana  | string  | null: false |
+| name_first_katakana | string  | null: false |
 | encrypted_password       | string  | null: false |
 | birthday                 | date    | null: false |
 
