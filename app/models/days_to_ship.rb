@@ -7,6 +7,10 @@ class DaysToShip < ActiveHash::Base
   ]
 
    include ActiveHash::Associations
-   has_many :listings
+   has_many :users
+   has_many :items
+   has_many :purchases
+   has_many :shipping_addresses
+
 
 end

@@ -6,6 +6,9 @@ class DeliveryFee < ActiveHash::Base
   ]
 
    include ActiveHash::Associations
-   has_many :listings
+   has_nmany :users
+   has_many :items
+   has_many :purchases
+   has_many :shipping_addresses
    
   end
